@@ -1,0 +1,42 @@
+{
+  "name": "react-native-super-responsive",
+  "version": "1.0.3",
+  "description": "A lightweight package for responsive design in React Native.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saeculumBhaveshB/react-native-super-responsive.git"
+  },
+  "keywords": [
+    "[\"react-native\"",
+    "\"responsive\"",
+    "\"dimensions\"",
+    "\"orientation\"",
+    "\"font",
+    "scaling\"]"
+  ],
+  "author": "Bhavesh Barot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saeculumBhaveshB/react-native-super-responsive/issues"
+  },
+  "homepage": "https://github.com/saeculumBhaveshB/react-native-super-responsive#readme",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-native": "^0.77.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-native": "^0.73.0",
+    "typescript": "^5.7.3"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ]
+}
