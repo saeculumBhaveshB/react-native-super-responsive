@@ -1,31 +1,41 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isTablet = exports.scaleHeight = exports.scaleWidth = exports.scaleFont = exports.hp = exports.wp = void 0;
+exports.isTablet = exports.scaleFont = exports.responsiveHeight = exports.responsiveWidth = exports.pxToDpHeight = exports.pxToDpWidth = exports.hp = exports.wp = void 0;
 const react_native_1 = require("react-native");
+// Get screen dimensions
 let { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = react_native_1.Dimensions.get('window');
 // Base dimensions for scaling (design specs)
-const BASE_WIDTH = 360; // Example: Design width in px
-const BASE_HEIGHT = 640; // Example: Design height in px
-// Update dimensions on orientation change
+const BASE_WIDTH = 360; // Width of the design in Figma
+const BASE_HEIGHT = 640; // Height of the design in Figma
+// Update dimensions dynamically on orientation change
 react_native_1.Dimensions.addEventListener('change', ({ window }) => {
     SCREEN_WIDTH = window.width;
     SCREEN_HEIGHT = window.height;
 });
-// Responsive width (percentage-based)
+// **Percentage-Based Dimensions**
 const wp = (percentage) => (SCREEN_WIDTH * percentage) / 100;
 exports.wp = wp;
-// Responsive height (percentage-based)
 const hp = (percentage) => (SCREEN_HEIGHT * percentage) / 100;
 exports.hp = hp;
-// Scale font size based on PixelRatio
-const scaleFont = (size) => size * react_native_1.PixelRatio.getFontScale();
+// **Pixel-Based Dimensions**
+// Converts Figma pixels to device width
+const pxToDpWidth = (pixels) => (pixels / BASE_WIDTH) * SCREEN_WIDTH;
+exports.pxToDpWidth = pxToDpWidth;
+// Converts Figma pixels to device height
+const pxToDpHeight = (pixels) => (pixels / BASE_HEIGHT) * SCREEN_HEIGHT;
+exports.pxToDpHeight = pxToDpHeight;
+const responsiveWidth = (value, type = 'percent') => {
+    return type === 'percent' ? (0, exports.wp)(value) : (0, exports.pxToDpWidth)(value);
+};
+exports.responsiveWidth = responsiveWidth;
+const responsiveHeight = (value, type = 'percent') => {
+    return type === 'percent' ? (0, exports.hp)(value) : (0, exports.pxToDpHeight)(value);
+};
+exports.responsiveHeight = responsiveHeight;
+// **Font Scaling**
+const scaleFont = (size) => (size / BASE_WIDTH) * SCREEN_WIDTH;
 exports.scaleFont = scaleFont;
-// Utility for scaling widths and heights
-const scaleWidth = (size) => (SCREEN_WIDTH / BASE_WIDTH) * size;
-exports.scaleWidth = scaleWidth;
-const scaleHeight = (size) => (SCREEN_HEIGHT / BASE_HEIGHT) * size;
-exports.scaleHeight = scaleHeight;
-// Utility to detect if the device is a tablet
+// **Utility to Detect Tablets**
 const isTablet = () => SCREEN_WIDTH > 600;
 exports.isTablet = isTablet;
 //# sourceMappingURL=responsive.js.map

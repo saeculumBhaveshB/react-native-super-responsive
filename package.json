@@ -1,6 +1,6 @@
 {
   "name": "react-native-super-responsive",
-  "version": "1.0.3",
+  "version": "1.0.8",
   "description": "A lightweight package for responsive design in React Native.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,7 +21,7 @@
     "scaling\"]"
   ],
   "author": "Bhavesh Barot",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/saeculumBhaveshB/react-native-super-responsive/issues"
   },

@@ -1,6 +1,10 @@
 export declare const wp: (percentage: number) => number;
 export declare const hp: (percentage: number) => number;
+export declare const pxToDpWidth: (pixels: number) => number;
+export declare const pxToDpHeight: (pixels: number) => number;
+type DimensionType = 'percent' | 'pixel';
+export declare const responsiveWidth: (value: number, type?: DimensionType) => number;
+export declare const responsiveHeight: (value: number, type?: DimensionType) => number;
 export declare const scaleFont: (size: number) => number;
-export declare const scaleWidth: (size: number) => number;
-export declare const scaleHeight: (size: number) => number;
 export declare const isTablet: () => boolean;
+export {};
